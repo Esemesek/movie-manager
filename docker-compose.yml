@@ -18,3 +18,12 @@ services:
       - 80:80
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  server:
+    container_name: server
+    image: aparedes/alpine-node-yarn
+    working_dir: /opt/server
+    command: yarn && yarn start
+    ports:
+      - 9000:9000
+    volumes:
+      - ./server:/opt/server
