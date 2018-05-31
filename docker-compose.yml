@@ -22,8 +22,17 @@ services:
     container_name: server
     image: aparedes/alpine-node-yarn
     working_dir: /opt/server
-    command: yarn && yarn start
+    command: yarn start
     ports:
       - 9000:9000
     volumes:
       - ./server:/opt/server
+  frontend:
+    container_name: frontend
+    image: aparedes/alpine-node-yarn
+    working_dir: /opt/frontend
+    command: yarn start
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/opt/frontend

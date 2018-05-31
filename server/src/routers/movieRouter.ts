@@ -1,8 +1,8 @@
 import Express, { Request, Response, NextFunction } from 'express';
-import Logger from '../Logger';
 import { getMovieByTitle } from '../apiHandler';
-import { addMovie, getAllMovies } from '../databaseHandler';
+import { addMovie, getAllMovies, getMovieById } from '../databaseHandler';
 import { makeKeysLowerCased } from '../utils';
+import MovieNotFoundError from '../errors/MovieNotFoundError';
 
 const movieRouter = Express.Router();
 
@@ -20,7 +20,11 @@ movieRouter.post('/movies', async (req: Request, res: Response) => {
     res.send(movie);
 
   } catch (e) {
-    res.sendStatus(404);
+    if (e instanceof MovieNotFoundError) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(500);
+    }
   }
 });
 
@@ -28,6 +32,21 @@ movieRouter.get('/movies', async (req: Request, res: Response) => {
   try {
     const movies = await getAllMovies();
     res.send(movies);
+
+  } catch (e) {
+    res.sendStatus(500);
+  }
+});
+
+movieRouter.get('/movies/:movieId', async (req: Request, res: Response) => {
+  try {
+    const movie = await getMovieById(req.params.movieId);
+
+    if (movie.length === 0) {
+      return res.sendStatus(404);
+    }
+
+    res.send(movie[0]);
 
   } catch (e) {
     res.sendStatus(500);

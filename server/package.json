@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "prestart": "yarn",
     "start": "nodemon",
     "test": "jest",
     "test:watch": "jest --watch"

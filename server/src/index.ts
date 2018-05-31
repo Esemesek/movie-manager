@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import Logger from './Logger';
 import movieRouter from './routers/movieRouter';
+import commentRouter from './routers/commentRouter';
 
 const application = Express();
 
@@ -11,5 +12,6 @@ application.use(bodyParser.urlencoded({ extended: false }));
 application.use(morgan('combined'));
 
 application.use(movieRouter);
+application.use(commentRouter);
 
-application.listen(8080, () => Logger.info('Application listening on 8080'));
+application.listen(9000, () => Logger.info('Application listening on 9000'));

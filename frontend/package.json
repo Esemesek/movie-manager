@@ -5,21 +5,36 @@
   "dependencies": {
     "@material-ui/core": "^1.0.0",
     "@material-ui/icons": "^1.0.0",
+    "axios": "^0.18.0",
     "history": "^4.7.2",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
+    "react-debounce-input": "^3.2.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
+    "react-spinkit": "^3.0.0",
     "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.8",
     "styled-components": "^3.2.6",
     "typeface-roboto": "^0.0.54"
   },
   "scripts": {
+    "prestart": "yarn",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.15.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/testSetup.js"
   }
 }
