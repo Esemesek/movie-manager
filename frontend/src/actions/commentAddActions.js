@@ -20,7 +20,7 @@ const commentAddFail = () => ({
 export const addComment = (id, comment) => (dispatch) => {
   dispatch(commentAddFetch());
 
-  return axios.post('/api/comments/', { id, comment })
+  return axios.post('/api/comments', { id, comment })
     .then(() => {
       dispatch(commentAddSuccess());
       dispatch(fetchComments(id));

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
+import { generate } from 'shortid';
 import { fetchMovies } from '../actions/movieListActions';
 import WithLoading from '../components/WithLoading';
 import Card from '../components/Card';
@@ -22,7 +23,9 @@ class MovieList extends Component {
 
   renderList() {
     return this.props.movieList.data.map(e => (
-      <Grid item xs={12} sm={2}
+      <Grid
+        key={generate()}
+        item xs={12} sm={2}
         onClick={this.goToDetails(e.imdbid)}
       >
         <Card title={e.title} poster={e.poster} />

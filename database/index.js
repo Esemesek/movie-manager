@@ -14,3 +14,14 @@ client.indices.create({
 }, (err, res) => {
   console.log(err, res);
 });
+
+client.indices.create({
+  index: 'comment',
+  body: {
+    mappings: {
+      comment: {}
+    }
+  },
+}, (err, res) => {
+  console.log(err, res);
+});

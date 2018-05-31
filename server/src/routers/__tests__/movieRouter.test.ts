@@ -3,7 +3,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import mockApp from '../../__mocks__/mockApp';
 import movieRouter from '../movieRouter';
-import * as databaseHander from '../../databaseHandler';
+import * as databaseHander from '../../database/movieHandler';
 
 const createApiUrl = (title: string) => new RegExp(`http:\/\/omdbapi\.com\/(.+)&t=${title}`);
 
@@ -30,7 +30,7 @@ describe('POST /movies', () => {
   });
 
   it('should get NOT_FOUND when request to external api fails', () => {
-    axiosMock.onGet(createApiUrl(TITLE)).reply(400);
+    axiosMock.onGet(createApiUrl(TITLE)).reply(200, { Error: true });
 
     return Request(app)
       .post('/movies')

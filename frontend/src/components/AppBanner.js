@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
@@ -15,7 +16,7 @@ const renderBackButton = (goBack, history) => {
   );
 }
 
-const AppBanner = ({ goBack, history }) => (
+export const AppBannerContainer = ({ goBack, history }) => (
   <AppBar color="default" position="static">
     <Toolbar>
       {renderBackButton(goBack, history)}
@@ -26,4 +27,13 @@ const AppBanner = ({ goBack, history }) => (
   </AppBar>
 );
 
-export default withRouter(AppBanner);
+AppBannerContainer.propTypes = {
+  goBack: PropTypes.bool,
+  history: PropTypes.instanceOf(Object).isRequired,
+};
+
+AppBannerContainer.defaultProps = {
+  goBack: false,
+};
+
+export default withRouter(AppBannerContainer);

@@ -1,5 +1,5 @@
 import thunkMiddleware from 'redux-thunk';
-import { configureStore } from 'redux-mock-store';
+import configureStore from 'redux-mock-store';
 
 const middlewares = [thunkMiddleware];
 

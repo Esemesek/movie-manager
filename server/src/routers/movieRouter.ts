@@ -1,6 +1,6 @@
 import Express, { Request, Response, NextFunction } from 'express';
 import { getMovieByTitle } from '../apiHandler';
-import { addMovie, getAllMovies, getMovieById } from '../databaseHandler';
+import { addMovie, getAllMovies, getMovieById } from '../database/movieHandler';
 import { makeKeysLowerCased } from '../utils';
 import MovieNotFoundError from '../errors/MovieNotFoundError';
 
@@ -30,8 +30,7 @@ movieRouter.post('/movies', async (req: Request, res: Response) => {
 
 movieRouter.get('/movies', async (req: Request, res: Response) => {
   try {
-    const movies = await getAllMovies();
-    res.send(movies);
+    res.send(await getAllMovies());
 
   } catch (e) {
     res.sendStatus(500);

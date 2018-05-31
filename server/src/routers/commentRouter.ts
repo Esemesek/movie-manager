@@ -1,5 +1,5 @@
 import Express, { Request, Response, NextFunction } from 'express';
-import { addComment, getAllCommentsById } from '../databaseHandler';
+import { addComment, getAllCommentsById } from '../database/commentHandler';
 
 const commentRouter = Express.Router();
 

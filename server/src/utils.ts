@@ -4,3 +4,5 @@ export const makeKeysLowerCased = (obj: any) => {
     [key.toLocaleLowerCase()]: obj[key],
   }), {});
 };
+
+export const transformElasticResponse = (res: any) => res.hits.hits.map((e: any) => e._source);
