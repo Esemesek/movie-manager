@@ -2,7 +2,7 @@ import axios from 'axios';
 import ApiRequestError from './errors/ApiRequestError';
 import MovieNotFoundEreor from './errors/MovieNotFoundError';
 
-const API_KEY = 'e5348b85';
+const API_KEY = process.env.API_KEY || '';
 const API_URL = `http://omdbapi.com/?apikey=${API_KEY}`;
 
 export const getMovieByTitle = async (title: string): Promise<any> => {
