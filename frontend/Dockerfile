@@ -6,4 +6,4 @@ COPY . /opt/frontend
 
 EXPOSE 3000
 
-CMD yarn start
+CMD yarn && yarn deploy

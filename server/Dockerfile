@@ -6,4 +6,4 @@ COPY . /opt/server
 
 EXPOSE 9000
 
-CMD yarn start
+CMD yarn && yarn deploy

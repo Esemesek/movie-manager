@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "prestart": "yarn",
     "start": "nodemon",
+    "deploy": "yarn build && node build",
+    "build": "tsc -p tsconfig.json",
     "test": "jest",
     "test:watch": "jest --watch"
   },
