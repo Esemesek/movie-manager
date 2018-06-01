@@ -8,11 +8,16 @@ services:
   nginx:
     container_name: nginx
     build: nginx
+    depends_on:
+      - frontend
+      - server
     ports:
       - 80:80
   server:
     container_name: server
     build: server
+    depends_on:
+      - elasticsearch
     ports:
       - 9000:9000
   frontend:
