@@ -21,6 +21,8 @@ services:
   server:
     container_name: server
     image: aparedes/alpine-node-yarn
+    environment:
+      - API_KEY
     working_dir: /opt/server
     command: yarn start
     ports:
