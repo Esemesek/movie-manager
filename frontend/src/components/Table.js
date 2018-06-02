@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Table,
   TableBody,
-  TableHead,
   TableRow,
   TableCell
 } from '@material-ui/core';
@@ -19,5 +19,9 @@ const TableContainer = ({ rows }) => (
     </TableBody>
   </Table>
 );
+
+TableContainer.propTypes = {
+  rows: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired,
+};
 
 export default TableContainer;

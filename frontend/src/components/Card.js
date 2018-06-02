@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Typography } from '@material-ui/core';
 import Image from './Image';
@@ -23,5 +24,10 @@ const Card = ({ title, poster }) => (
     <Image src={poster} width={200} />
   </CardWrapper>
 );
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+};
 
 export default Card;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { getMovie } from '../../actions/movieDetailsActions';
 import GridWrapper from '../../components/GridWrapper';
 import Table from '../../components/Table';
@@ -46,6 +47,14 @@ class MovieDetailsInfo extends Component {
     );
   }
 }
+
+MovieDetailsInfo.propTypes = {
+  details: PropTypes.shape({
+    data: PropTypes.instanceOf(Object).isRequired,
+    fetching: PropTypes.bool.isRequired,
+  }).isRequired,
+  getMovie: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   details: state.movie.details,

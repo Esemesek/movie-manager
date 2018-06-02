@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import AppBanner from '../../components/AppBanner';
 import MovieDetailsComments from './MovieDetailsComments';
 import MovieDetailsInfo from './MovieDetailsInfo';
@@ -11,7 +11,7 @@ const MovieDetailsContainer = styled.div`
 `;
 
 class MovieDetails extends Component {
-  renderTable() {
+  renderDetails() {
     return (
       <MovieDetailsContainer>
         <Grid container justify="center" alignItems="center" direction="column">
@@ -26,7 +26,7 @@ class MovieDetails extends Component {
     return (
       <div>
         <AppBanner goBack />
-        {this.renderTable()}
+        {this.renderDetails()}
       </div>
     );
   }

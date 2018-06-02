@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CircularProgress } from '@material-ui/core';
 
 const WithLoading = ({ children, isLoading, ...props }) => {
@@ -8,5 +9,10 @@ const WithLoading = ({ children, isLoading, ...props }) => {
 
   return children;
 }
+
+WithLoading.propTyps = {
+  children: PropTypes.node.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};
 
 export default WithLoading;

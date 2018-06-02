@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
@@ -45,6 +46,15 @@ class MovieList extends Component {
     );
   }
 }
+
+MovieList.propTypes = {
+  movieList: PropTypes.shape({
+    fetching: PropTypes.bool.isRequired,
+    data: PropTypes.instanceOf(Object).isRequired,
+  }).isRequired,
+  getMovies: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
+};
 
 const mapStateToProps = state => ({
   movieList: state.movie.list,

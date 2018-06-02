@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addComment } from '../../actions/commentAddActions';
@@ -39,6 +40,18 @@ class MovieDetailsComments extends Component {
     );
   }
 }
+
+MovieDetailsComments.propTypes = {
+  addStatus: PropTypes.shape({
+    fetching: PropTypes.bool.isRequired,
+  }).isRequired,
+  comment: PropTypes.shape({
+    data: PropTypes.instanceOf(Array).isRequired,
+    fetching: PropTypes.bool.isRequired,
+  }).isRequired,
+  addComment: PropTypes.func.isRequired,
+  getComments: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   addStatus: state.comment.add,

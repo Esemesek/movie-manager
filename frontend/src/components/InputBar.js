@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Button, TextField, CircularProgress } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
 
 const InputBarContainer = styled.div`
   text-align: center;
