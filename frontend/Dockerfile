@@ -1,4 +1,4 @@
-FROM aparedes/alpine-node-yarn
+FROM mhart/alpine-node
 
 WORKDIR /opt/frontend
 
