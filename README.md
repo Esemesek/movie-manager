@@ -6,6 +6,12 @@ How application works:
 * Adding comments is available in movie details
 * All data is persisted and saved in elasticsearch
 
+# Prerequisites
+* Your machine is running Linux
+* Node version 8 or later
+* Docker version 18.05.0-ce or later
+* Docker-compose version 1.21.2, or later
+
 # How to run application?
 ```shell
 # Clone repository
