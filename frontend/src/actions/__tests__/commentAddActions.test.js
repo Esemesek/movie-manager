@@ -12,7 +12,7 @@ const axiosMock = new MockAdapter(axios);
 const mockedStore = mockStore({});
 
 afterEach(() => {
-  axiosMock.restore();
+  axiosMock.reset();
   mockedStore.clearActions();
 });
 
@@ -22,16 +22,17 @@ it('should successfully add actions and refresh comments', () => {
       type: commentAddActions.COMMENT_ADD_FETCH
     },
     {
-      type: commentAddActions.COMMENT_ADD_SUCCESS,
+      type: commentAddActions.COMMENT_ADD_SUCCESS
     },
     {
-      type: COMMENT_FETCH,
+      type: COMMENT_FETCH
     }
   ];
 
   axiosMock.onPost('/api/comments').reply(200);
 
-  return mockedStore.dispatch(commentAddActions.addComment(MOVIE_ID, COMMENT))
+  return mockedStore
+    .dispatch(commentAddActions.addComment(MOVIE_ID, COMMENT))
     .then(() => {
       expect(mockedStore.getActions()).toEqual(EXPECTED_ACTIONS);
     });
@@ -40,16 +41,17 @@ it('should successfully add actions and refresh comments', () => {
 it('should fail adding comments', () => {
   const EXPECTED_ACTIONS = [
     {
-      type: commentAddActions.COMMENT_ADD_FETCH,
+      type: commentAddActions.COMMENT_ADD_FETCH
     },
     {
-      type: commentAddActions.COMMENT_ADD_FAIL,
+      type: commentAddActions.COMMENT_ADD_FAIL
     }
   ];
 
   axiosMock.onPost('/api/comments').reply(500);
 
-  return mockedStore.dispatch(commentAddActions.addComment(MOVIE_ID, COMMENT))
+  return mockedStore
+    .dispatch(commentAddActions.addComment(MOVIE_ID, COMMENT))
     .then(() => {
       expect(mockedStore.getActions()).toEqual(EXPECTED_ACTIONS);
     });

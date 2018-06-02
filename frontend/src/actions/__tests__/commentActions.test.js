@@ -10,42 +10,46 @@ const MOVIE_ID = 'someId';
 const COMMENTS = ['first', 'second'];
 
 afterEach(() => {
-  axiosMock.restore();
+  axiosMock.reset();
   mockedStore.clearActions();
 });
 
 it('should successfully fetch comments', () => {
   const EXPECTED_ACTIONS = [
     {
-      type: commentActions.COMMENT_FETCH,
+      type: commentActions.COMMENT_FETCH
     },
     {
       type: commentActions.COMMENT_SUCCESS,
       payload: {
-        comments: COMMENTS,
-      },
-    },
+        comments: COMMENTS
+      }
+    }
   ];
 
   axiosMock.onGet(`/api/comments/${MOVIE_ID}`).reply(200, COMMENTS);
 
-  return mockedStore.dispatch(commentActions.fetchComments(MOVIE_ID))
+  return mockedStore
+    .dispatch(commentActions.fetchComments(MOVIE_ID))
     .then(() => {
       expect(mockedStore.getActions()).toEqual(EXPECTED_ACTIONS);
     });
 });
 
 it('should fail fetching comments', () => {
-  const EXPECTED_ACTIONS = [{
-    type: commentActions.COMMENT_FETCH,
-  },
-  {
-    type: commentActions.COMMENT_FAIL,
-  }];
+  const EXPECTED_ACTIONS = [
+    {
+      type: commentActions.COMMENT_FETCH
+    },
+    {
+      type: commentActions.COMMENT_FAIL
+    }
+  ];
 
   axiosMock.onGet(`api/comments/${MOVIE_ID}`).reply(400);
 
-  return mockedStore.dispatch(commentActions.fetchComments(MOVIE_ID))
+  return mockedStore
+    .dispatch(commentActions.fetchComments(MOVIE_ID))
     .then(() => {
       expect(mockedStore.getActions()).toEqual(EXPECTED_ACTIONS);
     });
