@@ -4,7 +4,7 @@ import {
   COMMENT_ADD_SUCCESS,
 } from '../actions/commentAddActions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   fetching: false,
   error: false,
 };

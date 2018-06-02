@@ -4,7 +4,7 @@ import {
   MOVIE_LIST_FAIL,
 } from '../actions/movieListActions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   fetching: false,
   error: false,
   data: [],
@@ -33,4 +33,4 @@ export default (state = INITIAL_STATE, action) => {
     default:
       return state;
   }
-}
+};

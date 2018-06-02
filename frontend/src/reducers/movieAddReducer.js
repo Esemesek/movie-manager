@@ -4,7 +4,7 @@ import {
   MOVIE_ADD_SUCCESS,
 } from '../actions/movieAddActions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   error: false,
   fetching: false,
 };

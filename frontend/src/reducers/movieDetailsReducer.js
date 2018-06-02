@@ -4,7 +4,7 @@ import {
   MOVIE_DETAIL_FETCH,
 } from '../actions/movieDetailsActions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   error: false,
   fetching: false,
   data: {},
@@ -34,4 +34,4 @@ export default (state = INITIAL_STATE, action) => {
     default:
       return state;
   }
-}
+};

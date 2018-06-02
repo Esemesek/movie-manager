@@ -4,7 +4,7 @@ import {
   COMMENT_FETCH,
 } from '../actions/commentActions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   fetching: false,
   error: false,
   data: [],
