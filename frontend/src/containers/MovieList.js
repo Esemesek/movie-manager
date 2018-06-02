@@ -15,7 +15,7 @@ const MovieListWrapper = styled.div`
   justify-content: center;
 `;
 
-class MovieList extends Component {
+export class MovieListContainer extends Component {
   componentDidMount() {
     this.props.getMovies();
   }
@@ -47,7 +47,7 @@ class MovieList extends Component {
   }
 }
 
-MovieList.propTypes = {
+MovieListContainer.propTypes = {
   movieList: PropTypes.shape({
     fetching: PropTypes.bool.isRequired,
     data: PropTypes.instanceOf(Object).isRequired,
@@ -64,4 +64,4 @@ const mapDispatchToProps = dispatch => ({
   getMovies: () => dispatch(fetchMovies()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MovieList));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MovieListContainer));

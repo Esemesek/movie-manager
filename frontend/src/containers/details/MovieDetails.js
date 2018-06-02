@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 import AppBanner from '../../components/AppBanner';
@@ -10,26 +10,16 @@ const MovieDetailsContainer = styled.div`
   margin: 40px;
 `;
 
-class MovieDetails extends Component {
-  renderDetails() {
-    return (
-      <MovieDetailsContainer>
-        <Grid container justify="center" alignItems="center" direction="column">
-          <MovieDetailsInfo />
-          <MovieDetailsComments />
-        </Grid>
-      </MovieDetailsContainer>
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        <AppBanner goBack />
-        {this.renderDetails()}
-      </div>
-    );
-  }
-}
+const MovieDetails = () => (
+  <div>
+    <AppBanner goBack />
+    <MovieDetailsContainer>
+      <Grid container justify="center" alignItems="center" direction="column">
+        <MovieDetailsInfo />
+        <MovieDetailsComments />
+      </Grid>
+    </MovieDetailsContainer>
+  </div>
+);
 
 export default MovieDetails;

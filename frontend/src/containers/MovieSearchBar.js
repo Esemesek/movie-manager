@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import InputBar from '../components/InputBar';
 import { addMovie } from '../actions/movieAddActions';
 
-const MovieSearchBar = ({ addStatus, addMovie }) => (
+export const MovieSearchBarContainer = ({ addStatus, addMovie }) => (
   <InputBar
     label="Add movie"
     onClick={addMovie}
@@ -12,7 +12,7 @@ const MovieSearchBar = ({ addStatus, addMovie }) => (
   />
 );
 
-MovieSearchBar.propTypes = {
+MovieSearchBarContainer.propTypes = {
   addStatus: PropTypes.shape({
     fetching: PropTypes.bool.isRequired,
   }).isRequired,
@@ -27,4 +27,6 @@ const mapDispatchToProps = dispatch => ({
   addMovie: title => dispatch(addMovie(title)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieSearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  MovieSearchBarContainer,
+);
